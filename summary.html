@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AF721 Summary 5 พอร์ต</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: slim input bar, then 5 dark summary bands stacked to fit one screen for a screenshot */
+:root{
+  --bg:#EEF1F4; --surface:#FFFFFF; --ink:#141B26; --muted:#5A6577; --line:#DCE1E8;
+  --accent:#1E5BD8; --hero:#13213F; --hero-ink:#FFFFFF; --hero-muted:#AEB9D0; --hero-tile:#1C2E55; --hero-edge:#3E64C9;
+  --g:#7FE0AE; --y:#FFD36B; --r:#FF9C93;
+  --display:'Bai Jamjuree','IBM Plex Sans Thai',system-ui,sans-serif;
+  --body:'IBM Plex Sans Thai',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0D121A; --surface:#161D29; --ink:#E6EBF2; --muted:#9CA8BA; --line:#283244;
+  --accent:#6E9BFF; --hero:#1A2A4E; --hero-tile:#22355F; --hero-edge:#6E9BFF; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D121A; --surface:#161D29; --ink:#E6EBF2; --muted:#9CA8BA; --line:#283244;
+  --accent:#6E9BFF; --hero:#1A2A4E; --hero-tile:#22355F; --hero-edge:#6E9BFF; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-block:16px 24px;display:grid;gap:10px}
+.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 14px}
+.bar h1{font-family:var(--display);font-size:18px;margin:0;line-height:1.3}
+.bar h1 span{font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-left:8px}
+.ctl{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.amt{display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:8px;padding:3px 10px;background:var(--bg);font-size:13px}
+.amt input{width:130px;border:0;background:none;font-family:var(--mono);font-weight:600;font-size:14px}
+.amt span{color:var(--muted)}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;padding:2px;background:var(--bg)}
+.seg button{border:0;background:none;padding:3px 10px;border-radius:6px;cursor:pointer;font-weight:600;font-size:13px}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.fx{display:flex;align-items:center;gap:4px;font-size:13px;color:var(--muted)}
+.fx input{width:58px;border:1px solid var(--line);border-radius:6px;background:var(--bg);font-family:var(--mono);font-weight:600;padding:2px 6px;color:var(--accent)}
+.band{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px;align-items:center;background:var(--hero);color:var(--hero-ink);border-radius:14px;padding:12px 16px}
+.band.main{box-shadow:inset 0 0 0 2px var(--hero-edge)}
+.pl .pill{display:inline-block;background:var(--hero-tile);border-radius:999px;padding:1px 10px;font-family:var(--display);font-size:12.5px;font-weight:600;letter-spacing:.04em}
+.pl b{display:block;font-family:var(--mono);font-size:17px;margin-top:6px;line-height:1.3}
+.pl small{display:block;color:var(--hero-muted);font-size:12px}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.tile{background:var(--hero-tile);border-radius:10px;padding:8px 12px;min-width:0}
+.tile small{display:block;color:var(--hero-muted);font-size:12px;line-height:1.35}
+.tile b{display:block;font-family:var(--mono);font-size:21px;line-height:1.35}
+.tile p{margin:0;color:var(--hero-muted);font-size:11.5px;line-height:1.35}
+.g{color:var(--g)}.y{color:var(--y)}.r{color:var(--r)}
+.foot{font-size:12px;color:var(--muted);margin:2px 4px 0}
+@media (max-width:860px){
+  .band{grid-template-columns:minmax(0,1fr)}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <div class="bar">
+    <h1>สรุปผล 5 พอร์ต<span>AF721 · กลุ่มบำรุงร่วง</span></h1>
+    <div class="ctl">
+      <label class="amt" for="amount"><span>เงินลงทุน ฿</span><input id="amount" type="number" min="0" step="100000" value="100000000" inputmode="numeric"></label>
+      <div class="seg" role="group" aria-label="สกุลเงินที่แสดง"><button id="cTHB" aria-pressed="true">THB</button><button id="cUSD" aria-pressed="false">USD</button></div>
+      <label class="fx" for="fx">1 USD = <input id="fx" type="number" step="0.01" min="1" value="33.70"> ฿</label>
+    </div>
+  </div>
+  <div id="rows" style="display:grid;gap:10px"></div>
+  <p class="foot">ผลตอบแทนคาดหวังและความผันผวนคำนวณจากข้อมูลย้อนหลัง (เป้าหมายพอร์ต 15% ต่อปี) · มูลค่าและ Max Drawdown ปี 2027 มาจากการจำลอง 1 เส้นทาง (seed 42) ไม่ใช่การพยากรณ์</p>
+</div>
+
+<script>
+const BASE=100000000;
+const PLANS=[
+  {label:'Max Sharpe', main:true, ret:43.69, vol:16.70, sharpe:2.45, sim:121113376.68, simRet:21.11, dd:-8.45},
+  {label:'Min Volatility', ret:19.46, vol:8.75, sharpe:1.90, sim:118401651.64, simRet:18.40, dd:-7.16},
+  {label:'HRP', ret:37.86, vol:16.63, sharpe:2.11, sim:126780008.03, simRet:26.78, dd:-10.62},
+  {label:'Equal Weight', ret:41.86, vol:16.84, sharpe:2.32, sim:123550274.80, simRet:23.55, dd:-8.07},
+  {label:'Thai 60/40', ret:39.09, vol:19.34, sharpe:1.88, sim:103428500.56, simRet:3.43, dd:-13.49}
+];
+let st={amount:BASE, ccy:'THB', fx:33.70};
+const $=s=>document.querySelector(s);
+const fmt=(n,d=0)=>n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const money=thb=>st.ccy==='USD'?'$'+fmt(thb/st.fx):'฿'+fmt(thb);
+const other=thb=>st.ccy==='USD'?'≈ ฿'+fmt(thb):'≈ $'+fmt(thb/st.fx);
+function short(thb){
+  const v=st.ccy==='USD'?thb/st.fx:thb, s=st.ccy==='USD'?'$':'฿', a=Math.abs(v);
+  if(a>=1e6) return s+fmt(v/1e6,2)+'M';
+  if(a>=1e3) return s+fmt(v/1e3,1)+'K';
+  return s+fmt(v);
+}
+function render(){
+  $('#cTHB').setAttribute('aria-pressed',st.ccy==='THB');
+  $('#cUSD').setAttribute('aria-pressed',st.ccy==='USD');
+  $('#rows').innerHTML=PLANS.map(p=>`<section class="band${p.main?' main':''}">
+    <div class="pl"><span class="pill">${p.label.toUpperCase()}</span><b>${money(st.amount)}</b><small>เงินลงทุนตั้งต้น ${other(st.amount)}</small></div>
+    <div class="tiles">
+      <div class="tile"><small>ผลตอบแทนคาดหวังต่อปี</small><b class="g">+${p.ret.toFixed(2)}%</b><p>เป้าหมาย 15% ต่อปี</p></div>
+      <div class="tile"><small>มูลค่าจำลอง ณ สิ้นปี 2027</small><b class="y">${short(st.amount*p.sim/BASE)}</b><p>ผลตอบแทนจำลอง ${p.simRet>0?'+':''}${p.simRet.toFixed(2)}%</p></div>
+      <div class="tile"><small>ความผันผวนต่อปี</small><b>±${p.vol.toFixed(2)}%</b><p>Sharpe Ratio ${p.sharpe.toFixed(2)}</p></div>
+      <div class="tile"><small>Max Drawdown (จำลองปี 2027)</small><b class="r">${p.dd.toFixed(2)}%</b><p>จุดที่มูลค่าลดลงมากที่สุด</p></div>
+    </div></section>`).join('');
+}
+$('#amount').oninput=e=>{st.amount=Math.max(0,+e.target.value||0);render();};
+$('#fx').oninput=e=>{const v=+e.target.value;if(v>0){st.fx=v;render();}};
+$('#cTHB').onclick=()=>{st.ccy='THB';render();};
+$('#cUSD').onclick=()=>{st.ccy='USD';render();};
+render();
+</script>
+
+</body>
+</html>
