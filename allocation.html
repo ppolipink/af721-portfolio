@@ -1,8 +1,4 @@
-<!doctype html>
-<html lang="th">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>AF721 Allocation 5 พอร์ต</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,9 +59,6 @@ button,input{font:inherit;color:inherit}
   .lg{grid-template-columns:minmax(0,1fr)}
 }
 </style>
-</head>
-<body>
-
 
 <div class="wrap">
   <div class="bar">
@@ -77,30 +70,32 @@ button,input{font:inherit;color:inherit}
     </div>
   </div>
   <div id="rows" style="display:grid;gap:10px"></div>
-  <p class="foot">น้ำหนักจาก PyPortfolioOpt (ข้อมูลราคา 2021–2026) · Min Volatility, HRP, Equal Weight และ Thai 60/40 คำนวณจาก 7 สินทรัพย์ที่ Max Sharpe คัดเลือก · HRP ไม่รวม SGOV</p>
+  <p class="foot">น้ำหนักจาก PyPortfolioOpt (ข้อมูลราคา 30 มิ.ย. 2023 – 30 มิ.ย. 2026) · Min Volatility, HRP, Equal Weight และ Thai 60/40 คำนวณจาก 8 สินทรัพย์ที่ Max Sharpe คัดเลือก รวมกับ TLT · HRP ไม่รวม SGOV และ TLT</p>
 </div>
 
 <script>
 const ASSETS = [
   {id:'LLY',  name:'Eli Lilly',            color:'#2F6FDE'},
-  {id:'SGOV', name:'iShares 0-3M Treasury',color:'#8A94A3'},
+  {id:'GOOG', name:'Alphabet',             color:'#1FA2B8'},
+  {id:'MS',   name:'Morgan Stanley',       color:'#C2410C'},
+  {id:'TSM',  name:'TSMC',                 color:'#E05A8A'},
   {id:'SKH',  name:'SK Hynix',             color:'#23A26D'},
   {id:'MUFG', name:'Mitsubishi UFJ',       color:'#E3A33B'},
   {id:'KBANK',name:'Kasikornbank',         color:'#8B5CF6'},
-  {id:'AVGO', name:'Broadcom',             color:'#E05A8A'},
-  {id:'GOOG', name:'Alphabet',             color:'#1FA2B8'}
+  {id:'SGOV', name:'iShares 0-3M Treasury',color:'#8A94A3'},
+  {id:'TLT',  name:'iShares 20+Y Treasury',color:'#475569'}
 ];
 const PLANS = [
-  {label:'Max Sharpe', desc:'Sharpe สูงสุด · เพดาน 50%', main:true, ret:43.69,
-   w:{LLY:24.11,GOOG:3.05,AVGO:10.68,SKH:17.81,MUFG:13.04,KBANK:12.43,SGOV:18.88}},
-  {label:'Min Volatility', desc:'ความผันผวนต่ำที่สุด', ret:19.46,
-   w:{LLY:8.37,GOOG:7.46,AVGO:1.57,SKH:2.69,MUFG:8.82,KBANK:21.09,SGOV:50.00}},
-  {label:'HRP', desc:'Hierarchical Risk Parity', ret:37.86,
-   w:{LLY:17.22,GOOG:11.86,AVGO:6.26,SKH:7.60,MUFG:18.86,KBANK:38.21,SGOV:0}},
-  {label:'Equal Weight', desc:'แบ่งเท่ากัน 1/7', ret:41.86,
-   w:{LLY:14.2857,GOOG:14.2857,AVGO:14.2857,SKH:14.2857,MUFG:14.2857,KBANK:14.2857,SGOV:14.2857}},
-  {label:'Thai 60/40', desc:'KBank อย่างน้อย 60%', ret:39.09,
-   w:{LLY:15.50,GOOG:0,AVGO:8.40,SKH:16.11,MUFG:0,KBANK:60.00,SGOV:0}}
+  {label:'Max Sharpe', desc:'Sharpe สูงสุด · คัด 8 ตัว เพดาน 50%', main:true, ret:100.28,
+   w:{LLY:10.15,GOOG:10.27,MS:4.41,TSM:6.35,SKH:30.79,MUFG:11.00,KBANK:16.92,SGOV:10.10,TLT:0}},
+  {label:'Min Volatility', desc:'ผันผวนต่ำสุด · SGOV+TLT ไม่เกิน 50%', ret:24.17,
+   w:{LLY:5.62,GOOG:6.73,MS:6.72,TSM:0.39,SKH:0.83,MUFG:5.39,KBANK:24.32,SGOV:45.15,TLT:4.85}},
+  {label:'HRP', desc:'Hierarchical Risk Parity · ไม่รวมพันธบัตร', ret:51.68,
+   w:{LLY:12.50,GOOG:10.43,MS:10.86,TSM:6.50,SKH:4.69,MUFG:10.50,KBANK:44.52,SGOV:0,TLT:0}},
+  {label:'Equal Weight', desc:'แบ่งเท่ากัน 1/9', ret:60.28,
+   w:{LLY:11.1111,GOOG:11.1111,MS:11.1111,TSM:11.1111,SKH:11.1111,MUFG:11.1111,KBANK:11.1111,SGOV:11.1111,TLT:11.1111}},
+  {label:'Thai 60/40', desc:'KBank อย่างน้อย 60%', ret:102.29,
+   w:{LLY:1.34,GOOG:0,MS:0,TSM:5.06,SKH:33.60,MUFG:0,KBANK:60.00,SGOV:0,TLT:0}}
 ];
 let st={amount:100000000, ccy:'THB', fx:33.70};
 const $=s=>document.querySelector(s);
@@ -133,5 +128,4 @@ $('#cUSD').onclick=()=>{st.ccy='USD';render();};
 render();
 </script>
 
-</body>
-</html>
+</body></html>
