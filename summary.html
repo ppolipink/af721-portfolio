@@ -1,4 +1,8 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AF721 Summary 5 พอร์ต</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,6 +59,9 @@ button,input{font:inherit;color:inherit}
   .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 </style>
+</head>
+<body>
+
 
 <div class="wrap">
   <div class="bar">
@@ -66,17 +73,17 @@ button,input{font:inherit;color:inherit}
     </div>
   </div>
   <div id="rows" style="display:grid;gap:10px"></div>
-  <p class="foot">ผลตอบแทนคาดหวัง ความผันผวน และ Sharpe คำนวณจากข้อมูลย้อนหลัง 30 มิ.ย. 2023 – 30 มิ.ย. 2026 (Risk-free 4.49%) · Beta เทียบ S&amp;P 500 · มูลค่าและ Max Drawdown มาจากการจำลอง GBM 1 เส้นทาง (seed 42) ปี 2027–2029 ซึ่งปรับผลตอบแทนคาดหวังของ SK Hynix เหลือ 20% ไม่ใช่การพยากรณ์</p>
+  <p class="foot">ผลตอบแทนคาดหวัง ความผันผวน และ Sharpe คำนวณจากข้อมูลย้อนหลัง 30 มิ.ย. 2023 – 30 มิ.ย. 2026 (Risk-free 4.49%) · Beta เทียบ S&amp;P 500 · มูลค่าและ Max Drawdown มาจากการจำลอง GBM 1 เส้นทาง (seed 42) ปี 2027–2029 ซึ่งปรับผลตอบแทนคาดหวังของ SK Hynix เหลือ 20% ส่วน Morgan Stanley และ KBank เหลือ 10% ไม่ใช่การพยากรณ์</p>
 </div>
 
 <script>
 const BASE=100000000;
 const PLANS=[
-  {label:'Max Sharpe', main:true, ret:100.28, vol:23.46, sharpe:4.08, beta:1.113, sim:333499742.45, simRet:233.50, dd:-14.87},
-  {label:'Min Volatility', ret:24.17, vol:8.61, sharpe:2.29, beta:0.255, sim:175641495.01, simRet:75.64, dd:-6.05},
-  {label:'HRP', ret:51.68, vol:16.07, sharpe:2.94, beta:0.586, sim:355655413.83, simRet:255.66, dd:-9.65},
-  {label:'Equal Weight', ret:60.28, vol:15.87, sharpe:3.52, beta:0.777, sim:304010542.47, simRet:204.01, dd:-10.27},
-  {label:'Thai 60/40', ret:102.29, vol:26.64, sharpe:3.67, beta:0.955, sim:310867372.70, simRet:210.87, dd:-17.38}
+  {label:'Max Sharpe', main:true, ret:100.28, vol:23.46, sharpe:4.08, beta:1.113, sim:242956043.07, simRet:142.96, dd:-29.08},
+  {label:'Min Volatility', ret:24.17, vol:8.61, sharpe:2.29, beta:0.255, sim:134323536.76, simRet:34.32, dd:-6.60},
+  {label:'HRP', ret:51.68, vol:16.07, sharpe:2.94, beta:0.586, sim:208014183.60, simRet:108.01, dd:-12.75},
+  {label:'Equal Weight', ret:60.28, vol:15.87, sharpe:3.52, beta:0.777, sim:223479974.48, simRet:123.48, dd:-20.00},
+  {label:'Thai 60/40', ret:102.29, vol:26.64, sharpe:3.67, beta:0.955, sim:196727427.90, simRet:96.73, dd:-22.88}
 ];
 let st={amount:BASE, ccy:'THB', fx:33.70};
 const $=s=>document.querySelector(s);
@@ -108,4 +115,5 @@ $('#cUSD').onclick=()=>{st.ccy='USD';render();};
 render();
 </script>
 
-</body></html>
+</body>
+</html>
